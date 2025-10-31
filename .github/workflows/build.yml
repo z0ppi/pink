@@ -1,6 +1,7 @@
 name: Build Pink
 
 on:
+  workflow_dispatch:
   push:
     branches: [ devel, stable ]
   pull_request:
