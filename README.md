@@ -16,6 +16,10 @@ fun main(): int {
 Pink is a programming language that is designed to be easy to use, and fun to write.
 It is a statically typed, compiled language, with a focus on simplicity.
 
+## Status
+
+[![Build Pink](https://github.com/z0ppi/pink/actions/workflows/build.yml/badge.svg?branch=devel)](https://github.com/z0ppi/pink/actions/workflows/build.yml)
+
 ## Building
 
 See [`BUILDING.md`](./BUILDING.md)
