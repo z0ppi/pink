@@ -2,7 +2,7 @@
   <img src="./assets/pink.png" width="512" />
 </p>
 
-```pink
+```kt
 import io
 
 fun main(): int {
