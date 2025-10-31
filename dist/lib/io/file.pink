@@ -1,0 +1,128 @@
+import libc
+
+struct IoFile {
+    handle: FILE*;
+    path: char*;
+}
+
+enum IoMode {
+    READ,
+    WRITE,
+    APPEND,
+    READ_WRITE,
+}
+
+struct IoResult {
+    ok: bool;
+    error: char const*;
+}
+
+struct IoFileResult {
+    ok: bool;
+    file: IoFile;
+    error: char const*;
+}
+
+fun io_open(path: char const*, mode: IoMode): IoFileResult {
+    mode_str: char const* = "";
+    if (mode == READ) {
+        mode_str = "r";
+    } else if (mode == WRITE) {
+        mode_str = "w";
+    } else if (mode == APPEND) {
+        mode_str = "a";
+    } else if (mode == READ_WRITE) {
+        mode_str = "r+";
+    } else {
+        mode_str = "r";
+    }
+    
+    handle := fopen(path, mode_str);
+    if (!handle) {
+        return {false, {NULL, NULL}, "Failed to open file"};
+    }
+    
+    path_len := strlen(path);
+    path_copy := (:char*)malloc(path_len + 1);
+    strcpy(path_copy, path);
+    
+    return {true, {handle, path_copy}, NULL};
+}
+
+fun io_close(file: IoFile*): IoResult {
+    if (!file.handle) {
+        return {false, "File not open"};
+    }
+    
+    if (fclose(file.handle) != 0) {
+        return {false, "Failed to close file"};
+    }
+    
+    if (file.path) {
+        free(file.path);
+        file.path = NULL;
+    }
+    file.handle = NULL;
+    
+    return {true, NULL};
+}
+
+struct IoReadResult {
+    ok: bool;
+    data: char*;
+    size: usize;
+    error: char const*;
+}
+
+fun io_read_all(file: IoFile*): IoReadResult {
+    if (!file.handle) {
+        return {false, NULL, 0, "File not open"};
+    }
+    
+    fseek(file.handle, 0, SEEK_END);
+    size := ftell(file.handle);
+    fseek(file.handle, 0, SEEK_SET);
+    
+    if (size < 0) {
+        return {false, NULL, 0, "Failed to get file size"};
+    }
+    
+    buffer := (:char*)malloc(size + 1);
+    if (!buffer) {
+        return {false, NULL, 0, "Out of memory"};
+    }
+    
+    bytes_read := fread(buffer, 1, size, file.handle);
+    buffer[bytes_read] = '\0';
+    
+    return {true, buffer, bytes_read, NULL};
+}
+
+fun io_write(file: IoFile*, data: char const*): IoResult {
+    if (!file.handle) {
+        return {false, "File not open"};
+    }
+    
+    len := strlen(data);
+    bytes_written := fwrite(data, 1, len, file.handle);
+    if (bytes_written != len) {
+        return {false, "Failed to write all data"};
+    }
+    
+    return {true, NULL};
+}
+
+fun print(fmt: char const*, ...) {
+    args: va_list;
+    va_start(&args, &fmt);
+    vprintf(fmt, args);
+    va_end(&args);
+}
+
+fun println(fmt: char const*, ...) {
+    args: va_list;
+    va_start(&args, &fmt);
+    vprintf(fmt, args);
+    printf("\n");
+    va_end(&args);
+}

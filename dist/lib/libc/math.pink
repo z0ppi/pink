@@ -1,0 +1,338 @@
+#foreign(header = "<math.h>")
+
+@foreign("acosf")
+fun acos(x: float): float;
+
+@foreign("acos")
+fun acosd(x: double): double;
+
+@foreign("asinf")
+fun asin(x: float): float;
+
+@foreign("asin")
+fun asind(x: double): double;
+
+@foreign("atanf")
+fun atan(x: float): float;
+
+@foreign("atan")
+fun atand(x: double): double;
+
+@foreign("atan2f")
+fun atan2(y: float, x: float): float;
+
+@foreign("atan2")
+fun atan2d(y: double, x: double): double;
+
+@foreign("cosf")
+fun cos(x: float): float;
+
+@foreign("cos")
+fun cosd(x: double): double;
+
+@foreign("sinf")
+fun sin(x: float): float;
+
+@foreign("sin")
+fun sind(x: double): double;
+
+@foreign("tanf")
+fun tan(x: float): float;
+
+@foreign("tan")
+fun tand(x: double): double;
+
+@foreign("acoshf")
+fun acosh(x: float): float;
+
+@foreign("acosh")
+fun acoshd(x: double): double;
+
+@foreign("asinhf")
+fun asinh(x: float): float;
+
+@foreign("asinh")
+fun asinhd(x: double): double;
+
+@foreign("atanhf")
+fun atanh(x: float): float;
+
+@foreign("atanh")
+fun atanhd(x: double): double;
+
+@foreign("coshf")
+fun cosh(x: float): float;
+
+@foreign("cosh")
+fun coshd(x: double): double;
+
+@foreign("sinhf")
+fun sinh(x: float): float;
+
+@foreign("sinh")
+fun sinhd(x: double): double;
+
+@foreign("tanhf")
+fun tanh(x: float): float;
+
+@foreign("tanh")
+fun tanhd(x: double): double;
+
+@foreign("expf")
+fun exp(x: float): float;
+
+@foreign("exp")
+fun expd(x: double): double;
+
+@foreign("exp2f")
+fun exp2(x: float): float;
+
+@foreign("exp2")
+fun exp2d(x: double): double;
+
+@foreign("expm1f")
+fun expm1(x: float): float;
+
+@foreign("expm1")
+fun expm1d(x: double): double;
+
+@foreign("frexpf")
+fun frexp(value: float, exp: int*): float;
+
+@foreign("frexp")
+fun frexpd(value: double, exp: int*): double;
+
+@foreign("ilogbf")
+fun ilogb(x: float): int;
+
+@foreign("ilogb")
+fun ilogbd(x: double): int;
+
+@foreign("ldexpf")
+fun ldexp(x: float, exp: int): float;
+
+@foreign("ldexp")
+fun ldexpd(x: double, exp: int): double;
+
+@foreign("logf")
+fun log(x: float): float;
+
+@foreign("log")
+fun logd(x: double): double;
+
+@foreign("log10f")
+fun log10(x: float): float;
+
+@foreign("log10")
+fun log10d(x: double): double;
+
+@foreign("log1pf")
+fun log1p(x: float): float;
+
+@foreign("log1p")
+fun log1pd(x: double): double;
+
+@foreign("log2f")
+fun log2(x: float): float;
+
+@foreign("log2")
+fun log2d(x: double): double;
+
+@foreign("logbf")
+fun logb(x: float): float;
+
+@foreign("logb")
+fun logbd(x: double): double;
+
+@foreign("modff")
+fun modf(value: float, iptr: float*): float;
+
+@foreign("modf")
+fun modfd(value: double, iptr: double*): double;
+
+@foreign("scalbnf")
+fun scalbn(x: float, n: int): float;
+
+@foreign("scalbn")
+fun scalbnd(x: double, n: int): double;
+
+@foreign("scalblnf")
+fun scalbln(x: float, n: long): float;
+
+@foreign("scalbln")
+fun scalblnd(x: double, n: long): double;
+
+@foreign("cbrtf")
+fun cbrt(x: float): float;
+
+@foreign("cbrt")
+fun cbrtd(x: double): double;
+
+@foreign("fabsf")
+fun fabs(x: float): float;
+
+@foreign("fabs")
+fun fabsd(x: double): double;
+
+@foreign("hypotf")
+fun hypot(x: float, y: float): float;
+
+@foreign("hypot")
+fun hypotd(x: double, y: double): double;
+
+@foreign("powf")
+fun pow(x: float, y: float): float;
+
+@foreign("pow")
+fun powd(x: double, y: double): double;
+
+@foreign("sqrtf")
+fun sqrt(x: float): float;
+
+@foreign("sqrt")
+fun sqrtd(x: double): double;
+
+@foreign("erff")
+fun erf(x: float): float;
+
+@foreign("erf")
+fun erfd(x: double): double;
+
+@foreign("erfcf")
+fun erfc(x: float): float;
+
+@foreign("erfc")
+fun erfcd(x: double): double;
+
+@foreign("lgammaf")
+fun lgamma(x: float): float;
+
+@foreign("lgamma")
+fun lgammad(x: double): double;
+
+@foreign("tgammaf")
+fun tgamma(x: float): float;
+
+@foreign("tgamma")
+fun tgammad(x: double): double;
+
+@foreign("ceilf")
+fun ceil(x: float): float;
+
+@foreign("ceil")
+fun ceild(x: double): double;
+
+@foreign("floorf")
+fun floor(x: float): float;
+
+@foreign("floor")
+fun floord(x: double): double;
+
+@foreign("nearbyintf")
+fun nearbyint(x: float): float;
+
+@foreign("nearbyint")
+fun nearbyintd(x: double): double;
+
+@foreign("rintf")
+fun rint(x: float): float;
+
+@foreign("rint")
+fun rintd(x: double): double;
+
+@foreign("lrintf")
+fun lrint(x: float): long;
+
+@foreign("lrint")
+fun lrintd(x: double): long;
+
+@foreign("llrintf")
+fun llrint(x: float): llong;
+
+@foreign("llrint")
+fun llrintd(x: double): llong;
+
+@foreign("roundf")
+fun round(x: float): float;
+
+@foreign("round")
+fun roundd(x: double): double;
+
+@foreign("lroundf")
+fun lroun(x: float): long;
+
+@foreign("lround")
+fun lroundd(x: double): long;
+
+@foreign("lroundf")
+fun llround(x: float): llong;
+
+@foreign("lround")
+fun llroundd(x: double): llong;
+
+@foreign("truncf")
+fun trunc(x: float): float;
+
+@foreign("trunc")
+fun truncd(x: double): double;
+
+@foreign("fmodf")
+fun fmod(x: float, y: float): float;
+
+@foreign("fmod")
+fun fmodd(x: double, y: double): double;
+
+@foreign("remainderf")
+fun remainder(x: float, y: float): float;
+
+@foreign("remainder")
+fun remainderd(x: double, y: double): double;
+
+@foreign("remquof")
+fun remquo(x: float, y: float, quo: int*): float;
+
+@foreign("remquo")
+fun remquod(x: double, y: double, quo: int*): double;
+
+@foreign("copysignf")
+fun copysign(x: float, y: float): float;
+
+@foreign("copysign")
+fun copysignd(x: double, y: double): double;
+
+@foreign("nanf")
+fun nan(tagp: char const*): float;
+
+@foreign("nan")
+fun nand(tagp: char const*): double;
+
+@foreign("nextafterf")
+fun nextafter(x: float, y: float): float;
+
+@foreign("nextafter")
+fun nextafterd(x: double, y: double): double;
+
+@foreign("fdimf")
+fun fdim(x: float, y: float): float;
+
+@foreign("fdim")
+fun fdimd(x: double, y: double): double;
+
+@foreign("fmaxf")
+fun fmax(x: float, y: float): float;
+
+@foreign("fmax")
+fun fmaxd(x: double, y: double): double;
+
+@foreign("fminf")
+fun fmin(x: float, y: float): float;
+
+@foreign("fmin")
+fun fmind(x: double, y: double): double;
+
+@foreign("fmaf")
+fun fma(x: float, y: float, z: float): float;
+
+@foreign("fma")
+fun fmad(x: double, y: double, z: double): double;
+

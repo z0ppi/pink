@@ -1,0 +1,127 @@
+#foreign(header = "<stdlib.h>")
+
+@foreign
+struct div_t {
+    quot: int;
+    rem: int;
+}
+
+@foreign
+struct ldiv_t {
+    quot: long;
+    rem: long;
+}
+
+@foreign
+struct lldiv_t {
+    quot: llong;
+    rem: llong;
+}
+
+@foreign var RAND_MAX: int;
+
+@foreign
+fun atof(nptr: char const*): double;
+
+@foreign
+fun atoi(nptr: char const*): int;
+
+@foreign
+fun atol(nptr: char const*): long;
+
+@foreign
+fun atoll(nptr: char const*): llong;
+
+@foreign
+fun strtod(nptr: char const*, endptr: char**): double;
+
+@foreign
+fun strtof(nptr: char const*, endptr: char**): float;
+
+@foreign
+fun strtol(nptr: char const*, endptr: char**, base: int): long;
+
+@foreign
+fun strtoll(nptr: char const*, endptr: char**, base: int): llong;
+
+@foreign
+fun strtoul(nptr: char const*, endptr: char**, base: int): ulong;
+
+@foreign
+fun strtoull(nptr: char const*, endptr: char**, base: int): ullong;
+
+@foreign
+fun rand(): int;
+
+@foreign
+fun srand(seed: uint);
+
+@foreign
+fun calloc(nmemb: usize, size: usize): void*;
+
+@foreign
+fun free(ptr: void*);
+
+@foreign
+fun malloc(size: usize): void*;
+
+@foreign
+fun realloc(ptr: void*, size: usize): void*;
+
+@foreign
+fun abort();
+
+@foreign
+fun atexit(fn: fun()): int;
+
+@foreign
+fun exit(status: int);
+
+@foreign
+fun _Exit(status: int);
+
+@foreign
+fun getenv(name: char const*): char*;
+
+@foreign
+fun system(string: char const*): int;
+
+@foreign
+fun bsearch(key: void const*, base: void const*, nmemb: usize, size: usize, compar: fun(void const*, void const*): int): void*;
+
+@foreign
+fun qsort(base: void*, nmemb: usize, size: usize, compar: fun(void const*, void const*): int);
+
+@foreign
+fun abs(j: int): int;
+
+@foreign
+fun labs(j: long): long;
+
+@foreign
+fun llabs(j: llong): llong;
+
+@foreign
+fun div(numer: int, denom: int): div_t;
+
+@foreign
+fun ldiv(numer: long, denom: long): ldiv_t;
+
+@foreign
+fun lldiv(numer: llong, denom: llong): lldiv_t;
+
+@foreign
+fun mblen(s: char const*, n: usize): int;
+
+@foreign
+fun mbtowc(pwc: short*, s: char const*, n: usize): int;
+
+@foreign
+fun wctomb(s: char*, wchar: short): int;
+
+@foreign
+fun mbstowcs(pwcs: short*, s: char const*, n: usize): usize;
+
+@foreign
+fun wcstombs(s: char*, pwcs: short const*, n: usize): usize;
+

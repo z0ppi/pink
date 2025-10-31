@@ -1,0 +1,163 @@
+#foreign(header = "<stdio.h>")
+
+@foreign
+struct FILE;
+
+@foreign
+var stdin:  FILE*;
+
+@foreign
+var stdout: FILE*;
+
+@foreign
+var stderr: FILE*;
+
+@foreign
+typedef va_list = char*;
+
+@foreign
+struct fpos_t;
+
+@foreign const EOF      = -1;
+@foreign const SEEK_SET = 0;
+@foreign const SEEK_CUR = 1;
+@foreign const SEEK_END = 2;
+
+@foreign
+fun remove(filename: char const*): int;
+
+@foreign
+fun rename(old: char const*, new: char const*): int;
+
+@foreign
+fun tmpfile(): FILE*;
+
+@foreign
+fun tmpnam(s: char*): char*;
+
+@foreign
+fun fclose(stream: FILE*): int;
+
+@foreign
+fun fflush(stream: FILE*): int;
+
+@foreign
+fun fopen(filename: char const*, mode: char const*): FILE*;
+
+@foreign
+fun freopen(filename: char const*, mode: char const*, stream: FILE*): FILE*;
+
+@foreign
+fun setbuf(stream: FILE*, buf: char*);
+
+@foreign
+fun setvbuf(stream: FILE*, buf: char*, mode: int, size: usize): int;
+
+@foreign
+fun fprintf(stream: FILE*, format: char const*, ...): int;
+
+@foreign
+fun fscanf(stream: FILE*, format: char const*, ...): int;
+
+@foreign
+fun printf(format: char const*, ...): int;
+
+@foreign
+fun scanf(format: char const*, ...): int;
+
+@foreign
+fun snprintf(s: char*, n: usize, format: char const*, ...): int;
+
+@foreign
+fun sprintf(s: char*, format: char const*, ...): int;
+
+@foreign
+fun sscanf(s: char const*, format: char const*, ...): int;
+
+@foreign
+fun vfprintf(stream: FILE*, format: char const*, arg: va_list): int;
+
+@foreign
+fun vfscanf(stream: FILE*, format: char const*, arg: va_list): int;
+
+@foreign
+fun vprintf(format: char const*, arg: va_list): int;
+
+@foreign
+fun vscanf(format: char const*, arg: va_list): int;
+
+@foreign
+fun vsnprintf(s: char*, n: usize, format: char const*, arg: va_list): int;
+
+@foreign
+fun vsprintf(s: char*, format: char const*, arg: va_list): int;
+
+@foreign
+fun vsscanf(s: char const*, format: char const*, arg: va_list): int;
+
+@foreign
+fun fgetc(stream: FILE*): int;
+
+@foreign
+fun fgets(s: char*, n: int, stream: FILE*): char*;
+
+@foreign
+fun fputc(c: int, stream: FILE*): int;
+
+@foreign
+fun fputs(s: char const*, stream: FILE*): int;
+
+@foreign
+fun getc(stream: FILE*): int;
+
+@foreign
+fun getchar(): int;
+
+@foreign
+fun gets(s: char*): char*;
+
+@foreign
+fun putc(c: int, stream: FILE*): int;
+
+@foreign
+fun putchar(c: int): int;
+
+@foreign
+fun puts(s: char const*): int;
+
+@foreign
+fun ungetc(c: int, stream: FILE*): int;
+
+@foreign
+fun fread(ptr: void*, size: usize, nmemb: usize, stream: FILE*): usize;
+
+@foreign
+fun fwrite(ptr: void const*, size: usize, nmemb: usize, stream: FILE*): usize;
+
+@foreign
+fun fgetpos(stream: FILE*, pos: fpos_t*): int;
+
+@foreign
+fun fseek(stream: FILE*, offset: long, whence: int): int;
+
+@foreign
+fun fsetpos(stream: FILE*, pos: fpos_t*): int;
+
+@foreign
+fun ftell(stream: FILE*): long;
+
+@foreign
+fun rewind(stream: FILE*);
+
+@foreign
+fun clearerr(stream: FILE*);
+
+@foreign
+fun feof(stream: FILE*): int;
+
+@foreign
+fun ferror(stream: FILE*): int;
+
+@foreign
+fun perror(s: char const*);
+

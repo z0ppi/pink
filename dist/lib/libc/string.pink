@@ -1,0 +1,68 @@
+#foreign(header = "<string.h>")
+
+@foreign
+fun memcpy(s1: void*, s2: void const*, n: usize): void*;
+
+@foreign
+fun memmove(s1: void*, s2: void const*, n: usize): void*;
+
+@foreign
+fun strcpy(s1: char*, s2: char const*): char*;
+
+@foreign
+fun strncpy(s1: char*, s2: char const*, n: usize): char*;
+
+@foreign
+fun strcat(s1: char*, s2: char const*): char*;
+
+@foreign
+fun strncat(s1: char*, s2: char const*, n: usize): char*;
+
+@foreign
+fun memcmp(s1: void const*, s2: void const*, n: usize): int;
+
+@foreign
+fun strcmp(s1: char const*, s2: char const*): int;
+
+@foreign
+fun strcoll(s1: char const*, s2: char const*): int;
+
+@foreign
+fun strncmp(s1: char const*, s2: char const*, n: usize): int;
+
+@foreign
+fun strxfrm(s1: char*, s2: char const*, n: usize): usize;
+
+@foreign
+fun memchr(s: void const*, c: int, n: usize): void*;
+
+@foreign
+fun strchr(s: char const*, c: int): char*;
+
+@foreign
+fun strcspn(s1: char const*, s2: char const*): usize;
+
+@foreign
+fun strpbrk(s1: char const*, s2: char const*): char*;
+
+@foreign
+fun strrchr(s: char const*, c: int): char*;
+
+@foreign
+fun strspn(s1: char const*, s2: char const*): usize;
+
+@foreign
+fun strstr(s1: char const*, s2: char const*): char*;
+
+@foreign
+fun strtok(s1: char*, s2: char const*): char*;
+
+@foreign
+fun memset(s: void*, c: int, n: usize): void*;
+
+@foreign
+fun strerror(errnum: int): char*;
+
+@foreign
+fun strlen(s: char const*): usize;
+
