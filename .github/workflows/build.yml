@@ -23,11 +23,11 @@ jobs:
         install: mingw-w64-x86_64-gcc
         
     - name: Build Pink part 1
-      run: make.bat
+      run: .\make.bat
       shell: msys2 {0}
       
     - name: Build Pink part 2
-      run: make.bat
+      run: .\make.bat
       shell: msys2 {0}
       
     - name: Test the executable
