@@ -21,7 +21,11 @@ jobs:
     - name: Setup Visual Studio environment
       uses: ilammy/msvc-dev-cmd@v1
       
-    - name: Build Pink
+    - name: Build Pink part 1
+      run: make.bat
+      shell: cmd
+      
+    - name: Build Pink part 2
       run: make.bat
       shell: cmd
       
