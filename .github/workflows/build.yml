@@ -1,0 +1,45 @@
+name: Build Pink
+
+on:
+  push:
+    branches: [ devel ]
+  pull_request:
+    branches: [ devel ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup MSVC
+      uses: microsoft/setup-msbuild@v2
+      
+    - name: Setup Visual Studio environment
+      uses: ilammy/msvc-dev-cmd@v1
+      
+    - name: Build Pink
+      run: make.bat
+      shell: cmd
+      
+    - name: Test the executable
+      run: |
+        dist\pink.cmd
+      shell: cmd
+      continue-on-error: true
+        
+    - name: Create release archive
+      if: github.event_name == 'push' && github.ref == 'refs/heads/devel'
+      run: |
+        Compress-Archive -Path "dist\*" -DestinationPath "pink-windows64.zip"
+      shell: powershell
+      
+    - name: Upload release archive
+      if: github.event_name == 'push' && github.ref == 'refs/heads/devel'
+      uses: actions/upload-artifact@v4
+      with:
+        name: pink-windows64-release
+        path: pink-windows64.zip
+        retention-days: 90
