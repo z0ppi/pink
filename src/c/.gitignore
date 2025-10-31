@@ -1,3 +1,4 @@
 *.c
+*.o
 !pink.c
 !out_pink.c
