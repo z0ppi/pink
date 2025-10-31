@@ -2,9 +2,9 @@ name: Build Pink
 
 on:
   push:
-    branches: [ devel ]
+    branches: [ devel, stable ]
   pull_request:
-    branches: [ devel ]
+    branches: [ devel, stable ]
 
 jobs:
   build:
